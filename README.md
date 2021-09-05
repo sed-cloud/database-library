@@ -1,2 +1,2 @@
-# database-library
-A database library for accessing all databases within the sed-cloud
+# db-accessor-template
+template for building database accessors for this org
