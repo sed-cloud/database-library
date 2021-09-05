@@ -1,0 +1,31 @@
+#!/bin/bash
+# python3.8 -m venv venv
+# venv/bin/python3.8 -m pip install pre-commit
+# venv/bin/python3.8 -m pip install tox
+# source ./venv/bin/activate
+
+# build a brand new dev environment 
+docker-compose build --no-cache 
+# run the initial testcase
+docker-compose up test
+
+git init
+gh repo create
+
+gh secret set GH_PAT -b"${GH_PAT}"
+gh secret set PYPI_USERNAME -b"${PYPI_USERNAME}"
+gh secret set PYPI_PASSWORD -b"${PYPI_PASSWORD}"
+
+pre-commit install
+
+git checkout -b main
+
+# run this twice to ensure that pre-commit worked
+# this is because precommit may fix things but
+# still mark them as invalid, weird.
+git add . 
+git commit -m "Initial Commit"
+git add . 
+git commit -m "Initial Commit"
+
+git push --set-upstream origin main

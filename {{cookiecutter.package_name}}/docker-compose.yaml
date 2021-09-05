@@ -1,0 +1,27 @@
+version: '3'
+services:
+  {{cookiecutter.package_name}}-db-service:
+    image: postgres
+    container_name: {{cookiecutter.package_name}}-postgres-container
+    ports:
+      - "5400:5432"
+    env_file:
+      - database.env
+    volumes:
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+      - ./{{cookiecutter.package_name}}/internal/:/docker-entrypoint-initdb.d/
+      - database-data:/var/lib/postgresql/data/
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    restart: always
+
+  test:
+    build:
+      context: .
+    command: pytest -v
+    volumes:
+      - .:/workarea
+    depends_on: 
+      - {{cookiecutter.package_name}}-db-service
+        
+volumes:
+  database-data:

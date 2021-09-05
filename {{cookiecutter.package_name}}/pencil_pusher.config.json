@@ -1,0 +1,8 @@
+{
+    "python": {},
+    "sources": [
+        "{{cookiecutter.package_name}}/"
+    ],
+    "titles": [],
+    "sidebar": true
+}

@@ -1,0 +1,7 @@
+{
+    "package_name": "",
+    "database_name": "",
+    "_copy_without_render": [
+        "*.yml"
+    ]
+}
