@@ -1,4 +1,4 @@
-from {{cookiecutter.package_name}}.{{cookiecutter.package_name}}_accessor import session
+from {{cookiecutter.package_name}}.accessor import session
 
 def test_session():
     """ 
