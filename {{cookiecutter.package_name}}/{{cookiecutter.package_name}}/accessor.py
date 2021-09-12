@@ -18,7 +18,7 @@ def session():
         host="{{cookiecutter.package_name}}-db-service",
         user='docker',
         password='docker',
-        port=5400,
+        port=5432,
         cursor_factory=DictCursor
     )
     conn.set_session(autocommit=True)  # type: ignore
