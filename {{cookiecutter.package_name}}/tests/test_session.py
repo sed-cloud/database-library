@@ -1,4 +1,4 @@
-from {{cookiecutter.package_name}}.accessor import session
+from sedcloud.{{cookiecutter.package_name}}.accessor import session
 
 def test_session():
     """ 
