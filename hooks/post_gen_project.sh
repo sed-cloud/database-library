@@ -23,7 +23,7 @@ git init .
 # gh secret set GH_PAT -b"${GH_PAT}"
 # gh secret set PYPI_USERNAME -b"${PYPI_USERNAME}"
 # gh secret set PYPI_PASSWORD -b"${PYPI_PASSWORD}"
-git remote add origin git@github.com:sed-cloud/${{cookiecutter.package_name}}.git
+git remote add origin https://github.com/sed-cloud/${{cookiecutter.package_name}}.git
 
 pre-commit install
 
