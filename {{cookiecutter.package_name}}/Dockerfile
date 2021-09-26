@@ -1,8 +1,9 @@
 FROM ubuntu:18.04
 
 RUN apt update
+RUN apt install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt install -y python3.8 python3.8-distutils python3.8-venv python3.8-dev python3-pip libpq-dev software-properties-common
+RUN apt install -y python3.8 python3.8-distutils python3.8-venv python3.8-dev python3-pip libpq-dev 
 
 WORKDIR /workarea
 
