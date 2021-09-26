@@ -15,8 +15,7 @@ services:
     restart: always
 
   test:
-    build:
-      context: .
+    build: .
     command: pytest -v
     volumes:
       - .:/workarea
