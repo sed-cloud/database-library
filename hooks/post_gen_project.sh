@@ -9,6 +9,10 @@ docker-compose build --no-cache
 # run the initial testcase
 docker-compose up test
 
+# setup user config 
+echo "${GH_PAT}" > ghpat.txt
+gh auth login --with-token < ghpat.txt
+
 git init
 gh repo create
 
