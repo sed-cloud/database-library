@@ -10,19 +10,20 @@ docker-compose build --no-cache
 docker-compose up test
 
 # setup user config 
-echo "${GH_PAT}" > ghpat.txt
-gh auth login --with-token < ghpat.txt
+# echo "${GH_PAT}" > ghpat.txt
+# gh auth login --with-token < ghpat.txt
 
 git config --global user.name "Stephen Davis"
 git config --global user.email "stephenedavis17@gmail.com"
 
 git init . 
-echo "gh repo create ${{cookiecutter.package_name}}"
-gh repo create ${{cookiecutter.package_name}}
+# echo "gh repo create ${{cookiecutter.package_name}}"
+# gh repo create ${{cookiecutter.package_name}}
 
-gh secret set GH_PAT -b"${GH_PAT}"
-gh secret set PYPI_USERNAME -b"${PYPI_USERNAME}"
-gh secret set PYPI_PASSWORD -b"${PYPI_PASSWORD}"
+# gh secret set GH_PAT -b"${GH_PAT}"
+# gh secret set PYPI_USERNAME -b"${PYPI_USERNAME}"
+# gh secret set PYPI_PASSWORD -b"${PYPI_PASSWORD}"
+git remote add origin git@github.com:sed-cloud/${{cookiecutter.package_name}}.git
 
 pre-commit install
 
