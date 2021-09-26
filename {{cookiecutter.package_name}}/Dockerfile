@@ -9,7 +9,7 @@ RUN apt install -y libpq-dev
 
 WORKDIR /workarea
 
-COPY . /workarea/
+COPY . .
 
 RUN python3.8 -m pip install -r /workarea/requirements.txt 
 RUN python3.8 -m pip install -r /workarea/requirements-dev.txt
