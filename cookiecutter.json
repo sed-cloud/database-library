@@ -1,7 +1,6 @@
 {
     "package_name": "",
     "database_name": "",
-    "gh_pat": "",
     "_copy_without_render": [
         "*.yml"
     ]
