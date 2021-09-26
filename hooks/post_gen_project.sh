@@ -5,9 +5,9 @@
 # source ./venv/bin/activate
 
 # build a brand new dev environment 
-docker-compose build --no-cache 
+# docker-compose build --no-cache 
 # run the initial testcase
-docker-compose up test
+# docker-compose up test
 
 # setup user config 
 # echo "${GH_PAT}" > ghpat.txt
