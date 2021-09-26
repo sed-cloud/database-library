@@ -6,8 +6,8 @@ RUN apt install -y python3.8 python3.8-distutils python3.8-venv python3.8-dev py
 
 WORKDIR /workarea
 
-COPY . .
-
 RUN python3.8 -m pip install -r /workarea/requirements.txt 
 RUN python3.8 -m pip install -r /workarea/requirements-dev.txt
 RUN python3.8 -m pip install -e . 
+
+COPY . .
