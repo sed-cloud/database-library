@@ -13,8 +13,11 @@ docker-compose up test
 echo "${GH_PAT}" > ghpat.txt
 gh auth login --with-token < ghpat.txt
 
+git config user.name "Stephen Davis"
+git config user.email "stephenedavis17@gmail.com"
+
 git init
-gh repo create
+gh repo create ${{cookiecutter.package_name}}
 
 gh secret set GH_PAT -b"${GH_PAT}"
 gh secret set PYPI_USERNAME -b"${PYPI_USERNAME}"
