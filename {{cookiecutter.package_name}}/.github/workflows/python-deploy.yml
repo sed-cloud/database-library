@@ -1,0 +1,15 @@
+name: Publish Docs
+
+on:
+  push:
+    branches: [ main ] 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    shell: bash
+    steps:
+        - uses: sed-cloud/deploy@main
+          with:
+            repo-owner: owner=($(echo $GITHUB_REPOSITORY | tr "//" "\n")); echo ${owner[0]}            
+            repo-name: name=($(echo $GITHUB_REPOSITORY | tr "//" "\n")); echo ${name[1]}
