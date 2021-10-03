@@ -1,4 +1,4 @@
-name: Publish Docs
+name: Deploy
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    shell: bash
     steps:
         - uses: sed-cloud/deploy@main
           with:
