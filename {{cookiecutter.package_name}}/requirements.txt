@@ -2,3 +2,5 @@ fastapi
 uvicorn[standard]
 psycopg2
 requests
+sqlalchemy
+alembic
