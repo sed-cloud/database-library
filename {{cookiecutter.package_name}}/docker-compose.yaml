@@ -1,6 +1,6 @@
 version: '3'
 services:
-  {{cookiecutter.package_name}}-db-service:
+  {{cookiecutter.package_name}}-db:
     image: postgres
     container_name: {{cookiecutter.package_name}}-postgres-container
     ports:
@@ -12,15 +12,25 @@ services:
       - ./{{cookiecutter.package_name}}/internal/:/docker-entrypoint-initdb.d/
       - database-data:/var/lib/postgresql/data/
     command: postgres -c config_file=/etc/postgresql/postgresql.conf
-    restart: always
-
+    restart: unless-stopped
+    
+  {{cookiecutter.package_name}}-service:
+    build:
+      context: .
+    command: uvicorn {{cookiecutter.package_name}}.main:app --reload
+    volumes:
+      - .:/workarea
+    depends_on: 
+      - {{cookiecutter.package_name}}-db
+      
   test:
     build: .
     command: pytest -v
     volumes:
       - .:/workarea
     depends_on: 
-      - {{cookiecutter.package_name}}-db-service
+      - {{cookiecutter.package_name}}-db
+      - {{cookiecutter.package_name}}-service
         
 volumes:
   database-data:
