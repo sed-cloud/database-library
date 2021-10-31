@@ -3,4 +3,5 @@ uvicorn[standard]
 psycopg2
 requests
 sqlalchemy
+idna==2.8
 alembic
