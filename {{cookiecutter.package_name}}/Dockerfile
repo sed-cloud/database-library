@@ -7,10 +7,13 @@ RUN apt update
 RUN apt install -y python3.8 python3.8-distutils python3.8-venv python3.8-dev python3-pip
 RUN apt install -y libpq-dev
 
-WORKDIR /workarea
+RUN useradd -ms /bin/bash admin
+COPY --chown=admin:admin . /workarea
 
-COPY . /workarea/
+WORKDIR /workarea
 
 RUN python3.8 -m pip install -r /workarea/requirements.txt 
 RUN python3.8 -m pip install -r /workarea/requirements-dev.txt
 RUN python3.8 -m pip install -e .
+
+USER admin
