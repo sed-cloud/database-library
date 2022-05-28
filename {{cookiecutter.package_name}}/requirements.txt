@@ -5,3 +5,4 @@ requests
 sqlalchemy
 idna==2.8
 alembic
+markupsafe
