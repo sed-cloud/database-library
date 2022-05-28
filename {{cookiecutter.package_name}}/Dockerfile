@@ -6,7 +6,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install -y python3.10 python3.10-distutils python3.10-venv python3.10-dev python3-pip
 RUN apt install -y libpq-dev
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
+RUN python3.10 -m pip install -U setuptools
 
 WORKDIR /workarea
 COPY . /workarea/
